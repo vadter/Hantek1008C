@@ -9,14 +9,6 @@ import numpy as np, pylab as pl, sys, os, time
 # import pyhantek
 import pyhantek1008C as pyhantek
 
-ll = ['/home/vadter/.local/bin']
-
-if (sys.path.count(ll) == 0):
-
-    sys.path = sys.path + ll
-
-import optelems3 as oe
-
 #%% Settings
 
 ChVDIV = [1., 1., 1., 1., 1., 1., 1., 1.] # V / Div # 0.125, 0.02
@@ -31,21 +23,6 @@ h0 = pyhantek.Hantek1008CRaw(ns_per_div = 100_000,
              				 trigger_channel = 0,
              				 trigger_slope = "rising",
              				 trigger_level = 2048)
-
-# dt = time.time() - t0
-# print('h0 in %1.3f s' % (dt))
-
-# h0.connect()
-
-# dt = time.time() - t0
-# print('h0.connect() in %1.3f s' % (dt))
-
-# h0.init()
-
-# ChsData = h0.request_samples_burst_mode()
-
-# dt = time.time() - t0
-# print('Data in %1.3f s' % (dt))
 
 #%% Calculations
 
@@ -190,8 +167,6 @@ pl.grid(True)
 
 pl.xlabel('Time, ms')
 pl.ylabel('U, Volts')
-
-oe.CoordsToConsol()
 
 pl.show()
 
